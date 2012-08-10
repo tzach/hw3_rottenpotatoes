@@ -26,7 +26,7 @@ Background: movies have been added to database
 Scenario: sort movies alphabetically
   When I follow "Movie Title" 
   Then I should see "Aladdin" before "Chocolat"
-
+  And I should see in the following order: 2001, Aladdin, Amelie, Chicken Run, Chocolat, Raiders, The Help, The Incredibles, The Terminator, When Harry Met Sally 
 
 Scenario: sort movies in increasing order of release date
   When I follow "Release Date"

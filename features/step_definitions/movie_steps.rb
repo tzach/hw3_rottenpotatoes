@@ -18,6 +18,14 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   assert_match(/#{e1 + ".*" + e2}/m, page.body)
 end
 
+# check order
+Then /I should see in the following order:\s*(\S.*)/ do |movie_list|
+  rg = movie_list.split(/, /).reduce{|x,y| x + ".*" + y}
+  assert_match(/#{rg}/m, page.body)
+end
+
+
+
 # Make it easier to express checking or unchecking several boxes at once
 #  "When I uncheck the following ratings: PG, G, R"
 #  "When I check the following ratings: G"
