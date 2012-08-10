@@ -33,7 +33,7 @@ Scenario: no ratings selected
   Given I am on the RottenPotatoes home page
   When I uncheck the following ratings: PG, R, G, PG-13
   And I press "Refresh"
-  Then I should see not see any movie  
+  Then I should not see any movie  
 
 Scenario: all ratings selected
   Given I am on the RottenPotatoes home page
