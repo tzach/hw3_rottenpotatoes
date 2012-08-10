@@ -43,6 +43,7 @@ end
 
 Then /I should see all of the movies/ do
   assert_equal Movie.count, page.all('table#movies tbody tr').count
+  assert_equal 10, page.all('table#movies tbody tr').count
 end
 
 Then /I should not see any movie/ do

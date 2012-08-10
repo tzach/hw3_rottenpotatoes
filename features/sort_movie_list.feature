@@ -31,4 +31,4 @@ Scenario: sort movies alphabetically
 Scenario: sort movies in increasing order of release date
   When I follow "Release Date"
   Then I should see "Aladdin" before "Chocolat"
-
+  And I should see in the following order: 2001, Raiders, Terminator, Sally, Aladdin, Chicken, Chocolat, Amelie, Incredibles, Help
