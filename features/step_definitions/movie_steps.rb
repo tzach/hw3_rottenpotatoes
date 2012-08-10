@@ -28,7 +28,6 @@ end
 When /I (un)?check the following ratings:\s*(\S.*)/ do |uncheck, rating_list|
   rating_list.split(/, /).each do |x|
     if (uncheck == nil)
-      puts("ratings["+x+"]")
       check("ratings["+x+"]")
     else
       uncheck("ratings["+x+"]")
@@ -43,3 +42,15 @@ end
 Then /I should not see any movie/ do
   assert_equal 0, page.all('table#movies tbody tr').count
 end
+
+
+Then /I should (not )?see the following movies:\s*(\S.*)/ do |not_see, movie_list|
+  movie_list.split(/, /).each do |m|
+    if (not_see == nil)
+      assert page.has_content?(m)
+    else
+      assert !page.has_content?(m)
+    end
+  end
+end
+
