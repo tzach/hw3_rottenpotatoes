@@ -35,3 +35,7 @@ When /I (un)?check the following ratings:\s*(\S.*)/ do |uncheck, rating_list|
     end
   end
 end
+
+Then /I should see all of the movies/ do
+  page.all('table#movies tbody tr').count.should == movies_table.hashes.count
+end
