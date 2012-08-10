@@ -30,9 +30,13 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   And I should not see "The Help"
 
 Scenario: no ratings selected
-  # see assignment
+  Given I am on the RottenPotatoes home page
+  When I uncheck the following ratings: PG, R, G, PG-13
+  And I press "Refresh"
+  Then I should see not see any movie  
 
 Scenario: all ratings selected
+  Given I am on the RottenPotatoes home page
   When I check the following ratings: PG, R, G, PG-13
   And I press "Refresh"	     
   Then I should see all of the movies
